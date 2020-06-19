@@ -1,0 +1,3 @@
+rootProject.name = 'pauta-service'
+include 'implementacao'
+include 'contrato'
