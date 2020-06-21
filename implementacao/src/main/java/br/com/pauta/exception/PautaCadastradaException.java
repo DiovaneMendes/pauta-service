@@ -2,17 +2,17 @@ package br.com.pauta.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class PautaException extends ApiException {
+public class PautaCadastradaException extends ApiException {
   private String mensagem;
 
-  public PautaException(String mensagem){
+  public PautaCadastradaException(String mensagem){
     super(mensagem);
     this.mensagem = mensagem;
   }
 
   @Override
   public Long getCodigo() {
-    return 404L;
+    return 409L;
   }
 
   @Override
@@ -22,6 +22,6 @@ public class PautaException extends ApiException {
 
   @Override
   public HttpStatus getHttpStatus() {
-    return HttpStatus.BAD_REQUEST;
+    return HttpStatus.CONFLICT;
   }
 }

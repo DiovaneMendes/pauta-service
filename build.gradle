@@ -36,17 +36,16 @@ allprojects {
 	}
 
 	dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
-//    implementation 'postgresql:postgresql:9.1-901.jdbc4'
-    compileOnly 'org.springframework.boot:spring-boot-starter-jdbc'
-    compile group: 'org.postgresql', name: 'postgresql', version: '9.4.1212'
-
-
+    compile 'org.mybatis:mybatis-typehandlers-jsr310:1.0.2'
+    compile 'org.mybatis:mybatis:3.5.5'
+    compile 'org.postgresql:postgresql:42.2.5'
     compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.springframework.boot:spring-boot-starter-jdbc'
     compileOnly 'javax.validation:validation-api:2.0.1.Final'
     runtimeOnly 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 		testImplementation('org.springframework.boot:spring-boot-starter-test') {
 			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 		}
