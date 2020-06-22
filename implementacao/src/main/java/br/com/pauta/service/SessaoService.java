@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Slf4j
@@ -36,12 +35,12 @@ public class SessaoService {
     }
   }
 
-  public LocalDateTime getUltimaDataFinalizacao(SessaoInput sessaoInput) {
+  public boolean getSessaoAberta(Integer idPauta) {
     try {
-      return Optional.ofNullable(sessaoRepository.getUltimaDataFinalizacao(sessaoInput))
-        .orElse(LocalDateTime.MIN);
+      return Optional.ofNullable(sessaoRepository.getSessaoAberta(idPauta))
+        .isPresent();
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" abrirSessao - ").concat(erro.getMessage()));
+      log.error(mensagemErro.concat(" getSessaoAberta - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }

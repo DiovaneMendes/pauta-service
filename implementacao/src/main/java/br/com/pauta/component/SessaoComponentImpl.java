@@ -46,9 +46,8 @@ public class SessaoComponentImpl implements SessaoComponent{
 
   private Function<SessaoInput, SessaoInput> validarSessaoAberta() {
     return (SessaoInput sessaoInput) -> {
-      var ultimaDataFinalizacao = sessaoService.getUltimaDataFinalizacao(sessaoInput);
-      var dataAtual = LocalDateTime.now();
-      if (dataAtual.isBefore(ultimaDataFinalizacao))
+      var idPauta = sessaoInput.getIdPauta();
+      if (sessaoService.getSessaoAberta(idPauta))
         throw new SessaoAbertaException("Já há uma sessão aberta para está pauta!");
       return sessaoInput;
     };

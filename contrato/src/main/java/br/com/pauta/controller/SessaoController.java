@@ -1,8 +1,11 @@
 package br.com.pauta.controller;
 
 import br.com.pauta.binder.SessaoRequestBinder;
+import br.com.pauta.binder.VotoRequestBinder;
 import br.com.pauta.component.SessaoComponent;
+import br.com.pauta.component.VotoComponent;
 import br.com.pauta.model.SessaoRequest;
+import br.com.pauta.model.VotoRequest;
 
 import lombok.AllArgsConstructor;
 
@@ -16,11 +19,19 @@ import javax.validation.Valid;
 @RequestMapping("sessao/v1")
 public class SessaoController {
   private SessaoComponent sessaoComponent;
+  private VotoComponent votoComponent;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public String abrirSessao(@Valid @RequestBody SessaoRequest sessaoRequest) {
     var sessaoInput = SessaoRequestBinder.bindToSessaoInput(sessaoRequest);
     return sessaoComponent.abrirSessao(sessaoInput);
+  }
+
+  @PostMapping("/voto")
+  @ResponseStatus(HttpStatus.CREATED)
+  public String gravarVoto(@Valid @RequestBody VotoRequest votoRequest) {
+    var votoInput = VotoRequestBinder.bindToVotoInput(votoRequest);
+    return votoComponent.gravarVoto(votoInput);
   }
 }
