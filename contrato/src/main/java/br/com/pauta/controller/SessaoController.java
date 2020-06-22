@@ -4,8 +4,8 @@ import br.com.pauta.binder.SessaoRequestBinder;
 import br.com.pauta.binder.VotoRequestBinder;
 import br.com.pauta.component.SessaoComponent;
 import br.com.pauta.component.VotoComponent;
-import br.com.pauta.model.SessaoRequest;
-import br.com.pauta.model.VotoRequest;
+import br.com.pauta.model.request.SessaoRequest;
+import br.com.pauta.model.request.VotoRequest;
 
 import lombok.AllArgsConstructor;
 

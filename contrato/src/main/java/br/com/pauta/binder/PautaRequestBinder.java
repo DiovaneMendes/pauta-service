@@ -1,7 +1,7 @@
 package br.com.pauta.binder;
 
 import br.com.pauta.model.PautaInput;
-import br.com.pauta.model.PautaRequest;
+import br.com.pauta.model.request.PautaRequest;
 
 import java.util.Optional;
 

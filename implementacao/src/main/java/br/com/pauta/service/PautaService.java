@@ -5,6 +5,7 @@ import br.com.pauta.exception.BancoException;
 import br.com.pauta.exception.PautaCadastradaException;
 import br.com.pauta.exception.PautaNotFoundException;
 import br.com.pauta.model.PautaInput;
+import br.com.pauta.model.PautaOutput;
 import br.com.pauta.repository.PautaRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class PautaService {
       pautaRepository.criarPauta(pautaInput);
       return mensagemSucesso;
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat("criarPauta - ").concat(erro.getMessage()));
+      log.error(mensagemErro.concat(" criarPauta - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }
@@ -61,7 +62,17 @@ public class PautaService {
       return Optional.ofNullable(pautaRepository.buscarIdPauta(nomePauta))
         .orElseThrow(() -> new PautaNotFoundException(formatarMensagemNaoCadastro(nomePauta)));
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat("criarPauta - ").concat(erro.getMessage()));
+      log.error(mensagemErro.concat(" buscarIdPauta - ").concat(erro.getMessage()));
+      throw new BancoException();
+    }
+  }
+
+  public PautaOutput buscarPorNome(String nomePauta) {
+    try {
+      return Optional.ofNullable(pautaRepository.buscarPorNome(nomePauta))
+        .orElseThrow(() -> new PautaNotFoundException(formatarMensagemNaoCadastro(nomePauta)));
+    } catch (DataAccessException erro) {
+      log.error(mensagemErro.concat(" buscarPorNome - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }

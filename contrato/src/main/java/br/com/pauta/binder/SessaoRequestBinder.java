@@ -1,7 +1,7 @@
 package br.com.pauta.binder;
 
 import br.com.pauta.model.SessaoInput;
-import br.com.pauta.model.SessaoRequest;
+import br.com.pauta.model.request.SessaoRequest;
 
 import java.util.Optional;
 

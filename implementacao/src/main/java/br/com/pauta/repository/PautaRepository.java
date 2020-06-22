@@ -1,11 +1,10 @@
 package br.com.pauta.repository;
 
 import br.com.pauta.model.PautaInput;
+import br.com.pauta.model.PautaOutput;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import br.com.pauta.repository.provider.PautaProvider;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface PautaRepository {
@@ -23,4 +22,12 @@ public interface PautaRepository {
   @Select("SELECT id_pauta FROM PAUTA                   "
     + " WHERE NOME ILIKE #{nomePauta, jdbcType=VARCHAR} ")
   Integer buscarIdPauta(@Param("nomePauta") String nomePauta);
+
+  @SelectProvider(type = PautaProvider.class, method = "buscaPorNome")
+  @Results({
+    @Result(column = "nome", property = "nome"),
+    @Result(column = "voto_positivo", property = "votoPositivos"),
+    @Result(column = "voto_negativo", property = "votoNegativos")
+  })
+  PautaOutput buscarPorNome(@Param("nomePauta") String nomePauta);
 }

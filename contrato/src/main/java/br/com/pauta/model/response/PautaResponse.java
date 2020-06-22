@@ -1,4 +1,4 @@
-package br.com.pauta.model;
+package br.com.pauta.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SessaoRequest {
-  private String nomePauta;
-  private Long minutos;
+public class PautaResponse {
+  private String nome;
+  private VotoResponse voto;
 }

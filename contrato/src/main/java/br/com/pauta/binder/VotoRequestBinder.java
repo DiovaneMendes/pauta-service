@@ -1,7 +1,7 @@
 package br.com.pauta.binder;
 
 import br.com.pauta.model.VotoInput;
-import br.com.pauta.model.VotoRequest;
+import br.com.pauta.model.request.VotoRequest;
 
 import java.util.Optional;
 

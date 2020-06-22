@@ -1,4 +1,4 @@
-package br.com.pauta.model;
+package br.com.pauta.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
