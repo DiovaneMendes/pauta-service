@@ -13,10 +13,14 @@ public interface PautaRepository {
     + " VALUES( #{pautaInput.nomePauta, jdbcType=VARCHAR} )")
   void criarPauta(@Param("pautaInput") PautaInput pautaInput);
 
-  @Select("SELECT CASE                                             "
-    + " WHEN COUNT(*) >= 1 THEN NULL                               "
-    + " ELSE 0 END                                                 "
-    + " FROM pauta                                                 "
-    + " WHERE NOME ILIKE #{pautaInput.nomePauta, jdbcType=VARCHAR} ")
-  Integer validarPauta(@Param("pautaInput") PautaInput pautaInput);
+  @Select("SELECT CASE                                  "
+    + " WHEN COUNT(*) >= 1 THEN NULL                    "
+    + " ELSE 0 END                                      "
+    + " FROM pauta                                      "
+    + " WHERE NOME ILIKE #{nomePauta, jdbcType=VARCHAR} ")
+  Integer validarPauta(@Param("nomePauta") String nomePauta);
+
+  @Select("SELECT id_pauta FROM PAUTA                   "
+    + " WHERE NOME ILIKE #{nomePauta, jdbcType=VARCHAR} ")
+  Integer buscarIdPauta(@Param("nomePauta") String nomePauta);
 }

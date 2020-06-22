@@ -1,5 +1,6 @@
 package br.com.pauta.component;
 
+import br.com.pauta.enuns.TipoValidacaoPautaEnum;
 import br.com.pauta.model.PautaInput;
 import br.com.pauta.service.PautaService;
 
@@ -13,7 +14,7 @@ public class PautaComponentImpl implements PautaComponent{
   private PautaService pautaService;
 
   public String criarPauta(PautaInput pautaInput) {
-    pautaService.validarPauta(pautaInput);
+    pautaService.validarPauta(pautaInput.getNomePauta(), TipoValidacaoPautaEnum.CADASTRAR);
     return pautaService.criarPauta(pautaInput);
   }
 }

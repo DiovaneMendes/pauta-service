@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("pauta")
+@RequestMapping("pauta/v1")
 public class PautaController {
   private PautaComponent pautaComponent;
 
