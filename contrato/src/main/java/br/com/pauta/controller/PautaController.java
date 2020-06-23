@@ -45,9 +45,9 @@ public class PautaController {
     @ApiResponse(code = 404, message = "Pauta %s não foi cadastrada!", response = PautaNotFoundException.class),
     @ApiResponse(code = 500, message = "Houve um erro com a conexão com o banco.", response = BancoException.class)
   })
-  public PautaResponse buscarPorNome(@ApiParam(value = "Nome da pauta", example = "Dividendos")
+  public PautaResponse buscaPorNome(@ApiParam(value = "Nome da pauta", example = "Dividendos")
                                        @RequestParam String nomePauta) {
-    var pautaOutput = pautaComponent.buscarPorNome(nomePauta);
+    var pautaOutput = pautaComponent.buscaPorNome(nomePauta);
     return PautaResponseBinder.bindToPautaResponse(pautaOutput);
   }
 }

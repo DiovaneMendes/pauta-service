@@ -9,4 +9,11 @@ public abstract class SessaoInputStub {
       .minutos(45L)
       .build();
   }
+
+  public static SessaoInput parametroAbrirSessao() {
+    return SessaoInput.builder()
+      .nomePauta("woop")
+      .minutos(23L)
+      .build();
+  }
 }

@@ -9,4 +9,11 @@ public abstract class SessaoRequestStub {
       .minutos(45L)
       .build();
   }
+
+  public static SessaoRequest parametroAbrirSessao() {
+    return SessaoRequest.builder()
+      .nomePauta("woop")
+      .minutos(23L)
+      .build();
+  }
 }

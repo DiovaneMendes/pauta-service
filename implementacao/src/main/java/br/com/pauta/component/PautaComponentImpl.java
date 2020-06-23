@@ -23,8 +23,8 @@ public class PautaComponentImpl implements PautaComponent{
   }
 
   @Override
-  public PautaOutput buscarPorNome(String nomePauta) {
+  public PautaOutput buscaPorNome(String nomePauta) {
     if (ObjectUtils.isEmpty(nomePauta)) throw new PautaParametroException();
-    return pautaService.buscarPorNome(nomePauta);
+    return pautaService.buscaPorNome(nomePauta);
   }
 }

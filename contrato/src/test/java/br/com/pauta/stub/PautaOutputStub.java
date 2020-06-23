@@ -14,4 +14,12 @@ public abstract class PautaOutputStub {
   public static PautaOutput parametroBindToVotoResponse() {
     return parametroBindToPautaResponse();
   }
+
+  public static PautaOutput retornoBuscaPorNome() {
+    return PautaOutput.builder()
+      .nome("digital")
+      .votoNegativos(5L)
+      .votoPositivos(31L)
+      .build();
+  }
 }

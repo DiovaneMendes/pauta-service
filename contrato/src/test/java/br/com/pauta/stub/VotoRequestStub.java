@@ -10,4 +10,12 @@ public abstract class VotoRequestStub {
       .valorVoto("SIM")
       .build();
   }
+
+  public static VotoRequest parametroGravarVoto() {
+    return VotoRequest.builder()
+      .matriculaAssociado(567L)
+      .nomePauta("woop")
+      .valorVoto("NAO")
+      .build();
+  }
 }

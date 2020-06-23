@@ -29,5 +29,5 @@ public interface PautaRepository {
     @Result(column = "voto_positivo", property = "votoPositivos"),
     @Result(column = "voto_negativo", property = "votoNegativos")
   })
-  PautaOutput buscarPorNome(@Param("nomePauta") String nomePauta);
+  PautaOutput buscaPorNome(@Param("nomePauta") String nomePauta);
 }

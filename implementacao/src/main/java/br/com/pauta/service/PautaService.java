@@ -67,9 +67,9 @@ public class PautaService {
     }
   }
 
-  public PautaOutput buscarPorNome(String nomePauta) {
+  public PautaOutput buscaPorNome(String nomePauta) {
     try {
-      return Optional.ofNullable(pautaRepository.buscarPorNome(nomePauta))
+      return Optional.ofNullable(pautaRepository.buscaPorNome(nomePauta))
         .orElseThrow(() -> new PautaNotFoundException(formatarMensagemNaoCadastro(nomePauta)));
     } catch (DataAccessException erro) {
       log.error(mensagemErro.concat(" buscarPorNome - ").concat(erro.getMessage()));
