@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class ApiExceptionModel {
   private Long codigo;
   private String mensagem;
+  private String campo;
 }

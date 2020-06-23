@@ -2,8 +2,8 @@ package br.com.pauta.repository;
 
 import br.com.pauta.model.PautaInput;
 import br.com.pauta.model.PautaOutput;
-
 import br.com.pauta.repository.provider.PautaProvider;
+
 import org.apache.ibatis.annotations.*;
 
 @Mapper

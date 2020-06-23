@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("sessao/v1")
+@RequestMapping("v1/sessao")
 public class SessaoController {
   private SessaoComponent sessaoComponent;
   private VotoComponent votoComponent;
