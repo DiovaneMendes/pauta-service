@@ -15,7 +15,7 @@ public abstract class SessaoRequestBinder {
       .orElse(null);
   }
 
-  public static Long validarMinutos(Long minutos) {
+  private static Long validarMinutos(Long minutos) {
     return Optional.ofNullable(minutos)
       .orElse(1L);
   }
