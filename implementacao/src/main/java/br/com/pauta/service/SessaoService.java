@@ -31,7 +31,7 @@ public class SessaoService {
       return mensagemSucesso.concat(dataFinalizacao);
     } catch (DataAccessException erro) {
       log.error(mensagemErro.concat(" abrirSessao - ").concat(erro.getMessage()));
-      throw new BancoException();
+      throw new BancoException("Houve um erro ao abrir a sessão.");
     }
   }
 

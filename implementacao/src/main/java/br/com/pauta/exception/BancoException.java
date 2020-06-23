@@ -3,8 +3,14 @@ package br.com.pauta.exception;
 import org.springframework.http.HttpStatus;
 
 public class BancoException extends ApiException{
+  private static String mensagem = "Houve um erro com a conexão com o banco.";
   public BancoException() {
-    super("Houve um erro com a conexão com o banco.");
+    super(mensagem);
+  }
+
+  public BancoException(String mensagem) {
+    super(mensagem);
+    BancoException.mensagem = mensagem;
   }
 
   @Override
@@ -14,7 +20,7 @@ public class BancoException extends ApiException{
 
   @Override
   public String getMensagem() {
-    return "Houve um erro com a conexão com o banco.";
+    return mensagem;
   }
 
   @Override

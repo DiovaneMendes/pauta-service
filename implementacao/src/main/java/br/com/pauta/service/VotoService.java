@@ -40,7 +40,7 @@ public class VotoService {
       return mensagemSucesso;
     } catch (DataAccessException erro) {
       log.error(mensagemErro.concat(" inserirVoto - ").concat(erro.getMessage()));
-      throw new BancoException();
+      throw new BancoException("Houve um erro ao gravar voto.");
     }
   }
 }
