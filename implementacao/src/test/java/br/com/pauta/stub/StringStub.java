@@ -8,7 +8,7 @@ public abstract class StringStub {
       + "     AND valor ILIKE 'SIM') AS voto_positivo, "
       + "   (SELECT COUNT(*) FROM voto "
       + "     WHERE fk_pauta=p.id_pauta "
-      + "     AND valor ILIKE 'NAO') AS voto_negativo "
+      + "     AND valor ILIKE 'NÃO') AS voto_negativo "
       + " FROM pauta p "
       + " WHERE p.nome ILIKE 'woop'";
   }

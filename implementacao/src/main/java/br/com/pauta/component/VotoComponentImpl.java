@@ -2,6 +2,7 @@ package br.com.pauta.component;
 
 import br.com.pauta.exception.SessaoAbertaException;
 import br.com.pauta.model.VotoInput;
+import br.com.pauta.service.AssociadoService;
 import br.com.pauta.service.PautaService;
 import br.com.pauta.service.SessaoService;
 import br.com.pauta.service.VotoService;
@@ -18,6 +19,7 @@ public class VotoComponentImpl implements VotoComponent {
   private PautaService pautaService;
   private VotoService votoService;
   private SessaoService sessaoService;
+  private AssociadoService associadoService;
 
   @Override
   public String gravarVoto(VotoInput votoInput) {
@@ -47,6 +49,7 @@ public class VotoComponentImpl implements VotoComponent {
 
   private Function<VotoInput, VotoInput> validarVotoAssociado() {
     return (VotoInput votoInput) -> {
+      associadoService.validarCpf(votoInput.getCpfAssociado());
       votoService.validarVotoAssociado(votoInput);
       return votoInput;
     };

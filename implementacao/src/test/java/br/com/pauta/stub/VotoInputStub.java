@@ -5,7 +5,7 @@ import br.com.pauta.model.VotoInput;
 public abstract class VotoInputStub {
   public static VotoInput parametroGravarVotoComponent() {
     return VotoInput.builder()
-      .matriculaAssociado(345L)
+      .cpfAssociado(345L)
       .nomePauta("woop")
       .valorVoto("SIM")
       .build();
@@ -13,7 +13,7 @@ public abstract class VotoInputStub {
 
   public static VotoInput parametroInserirVotoComponent() {
     return VotoInput.builder()
-      .matriculaAssociado(345L)
+      .cpfAssociado(345L)
       .nomePauta("woop")
       .valorVoto("SIM")
       .idPauta(56)
@@ -22,7 +22,7 @@ public abstract class VotoInputStub {
 
   public static VotoInput parametroService() {
     return VotoInput.builder()
-      .matriculaAssociado(890L)
+      .cpfAssociado(890L)
       .nomePauta("digital")
       .valorVoto("NAO")
       .idPauta(98)

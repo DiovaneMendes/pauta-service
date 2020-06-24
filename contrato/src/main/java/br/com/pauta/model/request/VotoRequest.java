@@ -17,9 +17,9 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VotoRequest {
-  @ApiModelProperty(value = "matriculaAssociado", example = "48053", required = true)
-  @NotNull(message = "Matricula do associado é obrigatória.")
-  private Long matriculaAssociado;
+  @ApiModelProperty(value = "cpfAssociado", example = "90861221087", required = true)
+  @NotNull(message = "CPF do associado é obrigatória.")
+  private Long cpfAssociado;
   @ApiModelProperty(value = "nomePauta", example = "woop", required = true)
   @NotNull(message = "Nome da pauta é obrigatória.")
   private String nomePauta;

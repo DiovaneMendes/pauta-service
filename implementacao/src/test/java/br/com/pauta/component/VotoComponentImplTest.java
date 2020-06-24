@@ -2,6 +2,7 @@ package br.com.pauta.component;
 
 import br.com.pauta.exception.SessaoAbertaException;
 import br.com.pauta.model.VotoInput;
+import br.com.pauta.service.AssociadoService;
 import br.com.pauta.service.PautaService;
 import br.com.pauta.service.SessaoService;
 import br.com.pauta.service.VotoService;
@@ -33,6 +34,8 @@ public class VotoComponentImplTest {
   private VotoService votoService;
   @Mock
   private SessaoService sessaoService;
+  @Mock
+  private AssociadoService associadoService;
   @InjectMocks
   private VotoComponentImpl votoComponent;
 
@@ -89,6 +92,15 @@ public class VotoComponentImplTest {
       var parametroTeste = VotoInputStub.parametroInserirVotoComponent();
 
       verify(votoService).validarVotoAssociado(parametroTeste);
+    }
+
+    @Test
+    @DisplayName("Deve chamar o método [validarCpf] do AssociadoService passando VotoInput.cpfAssociado")
+    public void deveChamarMetodoValidarCpf() {
+      votoComponent.gravarVoto(parametro);
+      var parametroTeste = VotoInputStub.parametroInserirVotoComponent();
+
+      verify(associadoService).validarCpf(parametroTeste.getCpfAssociado());
     }
 
     @Test

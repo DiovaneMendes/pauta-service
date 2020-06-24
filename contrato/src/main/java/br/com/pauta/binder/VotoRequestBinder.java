@@ -9,7 +9,7 @@ public abstract class VotoRequestBinder {
   public static VotoInput bindToVotoInput(VotoRequest votoRequest) {
     return Optional.ofNullable(votoRequest)
       .map(votoReq -> VotoInput.builder()
-        .matriculaAssociado(votoReq.getMatriculaAssociado())
+        .cpfAssociado(votoReq.getCpfAssociado())
         .nomePauta(votoReq.getNomePauta())
         .valorVoto(votoReq.getValorVoto())
         .build()

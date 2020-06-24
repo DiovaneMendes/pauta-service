@@ -1,4 +1,4 @@
-package br.com.pauta.model;
+package br.com.pauta.associado.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VotoInput {
-  private Long cpfAssociado;
-  private String nomePauta;
-  private String valorVoto;
-  private Integer idPauta;
+public class AssociadoOutput {
+  private String status;
 }

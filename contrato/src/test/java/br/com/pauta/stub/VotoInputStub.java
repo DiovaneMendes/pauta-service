@@ -5,7 +5,7 @@ import br.com.pauta.model.VotoInput;
 public abstract class VotoInputStub {
   public static VotoInput retornoBindToVotoInput() {
     return VotoInput.builder()
-      .matriculaAssociado(123L)
+      .cpfAssociado(123L)
       .nomePauta("diversidade")
       .valorVoto("SIM")
       .build();
@@ -13,7 +13,7 @@ public abstract class VotoInputStub {
 
   public static VotoInput parametroGravarVoto() {
     return VotoInput.builder()
-      .matriculaAssociado(567L)
+      .cpfAssociado(567L)
       .nomePauta("woop")
       .valorVoto("NAO")
       .build();

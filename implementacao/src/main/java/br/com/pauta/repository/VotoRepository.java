@@ -13,16 +13,16 @@ public interface VotoRepository {
     + " WHEN COUNT(*) >= 1 THEN NULL                                                  "
     + " ELSE 0 END                                                                    "
     + " FROM VOTO                                                                     "
-    + " WHERE matricula_associado = #{votoInput.matriculaAssociado, jdbcType=INTEGER} "
+    + " WHERE cpf_associado = #{votoInput.cpfAssociado, jdbcType=INTEGER} "
     + " AND fk_pauta = #{votoInput.idPauta, jdbcType=INTEGER}                         ")
   Long validarVotoAssociado(@Param("votoInput") VotoInput votoInput);
 
   @Insert("INSERT INTO VOTO (                                "
-    + "   matricula_associado,                               "
+    + "   cpf_associado,                                     "
     + "   valor,                                             "
     + "   fk_pauta                                           "
     + " ) VALUES (                                           "
-    + "   #{votoInput.matriculaAssociado, jdbcType=INTEGER}, "
+    + "   #{votoInput.cpfAssociado, jdbcType=BIGINT},       "
     + "   #{votoInput.valorVoto, jdbcType=VARCHAR},          "
     + "   #{votoInput.idPauta, jdbcType=INTEGER} )           ")
   void inserirVoto(@Param("votoInput") VotoInput votoInput);

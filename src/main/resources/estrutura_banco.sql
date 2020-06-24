@@ -14,7 +14,7 @@ CREATE TABLE SESSAO (
 
 CREATE TABLE VOTO (
 	id_voto SERIAL PRIMARY KEY,
-	matricula_associado INTEGER NOT NULL,
+	cpf_associado BIGINT NOT NULL,
 	valor VARCHAR(10) NOT NULL,
 	fk_pauta INTEGER NOT NULL,
 	FOREIGN KEY (fk_pauta) REFERENCES PAUTA (id_pauta)
