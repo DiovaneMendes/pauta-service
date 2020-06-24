@@ -8,7 +8,6 @@ import br.com.pauta.util.PautaUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -17,20 +16,19 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class SessaoService {
+  private final static String MENSAGEM_ERRO = "Erro: classe - SessaoService; metodo - ";
+  private final static String MENSAGEM_SUCESSO = "Sessãoo aberta e deve ser finalizada: ";
+
   @Autowired
   private SessaoRepository sessaoRepository;
-  @Value("${mensagem.erro.service}")
-  private String mensagemErro;
-  @Value("${sessao.aberta.sucesso}")
-  private String mensagemSucesso;
 
   public String abrirSessao(SessaoInput sessaoInput) {
     try {
       sessaoRepository.abrirSessao(sessaoInput);
       var dataFinalizacao = PautaUtil.formatarData(sessaoInput.getDataFinalizacao());
-      return mensagemSucesso.concat(dataFinalizacao);
+      return MENSAGEM_SUCESSO.concat(dataFinalizacao);
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" abrirSessao - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" abrirSessao - ").concat(erro.getMessage()));
       throw new BancoException("Houve um erro ao abrir a sessão.");
     }
   }
@@ -40,7 +38,7 @@ public class SessaoService {
       return Optional.ofNullable(sessaoRepository.getSessaoAberta(idPauta))
         .isPresent();
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" getSessaoAberta - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" getSessaoAberta - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }

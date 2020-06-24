@@ -60,7 +60,8 @@ public class ExceptionHandlers {
 
   @ExceptionHandler(ServletRequestBindingException.class)
   public ApiExceptionModel handleSpringBindValidationException(ServletRequestBindingException error,
-                                                                     HttpServletResponse response) {
+                                                               HttpServletResponse response) {
+    log.error(error.getMessage());
     response.setStatus(HttpStatus.BAD_REQUEST.value());
     return ApiExceptionModel.builder()
         .codigo(400L)
@@ -70,7 +71,8 @@ public class ExceptionHandlers {
 
   @ExceptionHandler(MissingServletRequestPartException.class)
   public ApiExceptionModel handleMissingMultipartFieldException(MissingServletRequestPartException error,
-                                                                      HttpServletResponse response) {
+                                                                HttpServletResponse response) {
+    log.error(error.getMessage());
     response.setStatus(HttpStatus.BAD_REQUEST.value());
     return ApiExceptionModel.builder()
       .codigo(400L)
@@ -82,6 +84,7 @@ public class ExceptionHandlers {
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public List<ApiExceptionModel> handleBeanValidationException(MethodArgumentNotValidException error,
                                                                HttpServletResponse response) {
+    log.error(error.getMessage());
     response.setStatus(HttpStatus.BAD_REQUEST.value());
     return error.getBindingResult().getFieldErrors().stream()
       .map(fieldError -> ApiExceptionModel.builder()
@@ -130,7 +133,7 @@ public class ExceptionHandlers {
 
   @ExceptionHandler(MethodArgumentTypeMismatchException.class)
   public ApiExceptionModel handleMethodTypeMismatchException(MethodArgumentTypeMismatchException error,
-                                                                   HttpServletResponse response) {
+                                                             HttpServletResponse response) {
     log.error(error.getMessage());
     response.setStatus(HttpStatus.BAD_REQUEST.value());
     return ApiExceptionModel.builder()
@@ -142,7 +145,7 @@ public class ExceptionHandlers {
 
   @ExceptionHandler(UnexpectedTypeException.class)
   public ApiExceptionModel handleMethodTypeMismatchException(UnexpectedTypeException error,
-                                                                   HttpServletResponse response) {
+                                                             HttpServletResponse response) {
     log.error(error.getMessage());
     response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
     return ApiExceptionModel.builder()

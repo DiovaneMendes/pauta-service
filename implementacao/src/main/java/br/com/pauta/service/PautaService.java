@@ -20,10 +20,8 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class PautaService {
-  @Value("${mensagem.erro.service}")
-  private String mensagemErro;
-  @Value("${pauta.gravacao.sucesso}")
-  private String mensagemSucesso;
+  private final static String MENSAGEM_ERRO = "Erro: classe - PautaService; metodo - ";
+  private final static String MENSAGEM_SUCESSO = "Pauta gravada com sucesso.";
 
   @Autowired
   private PautaRepository pautaRepository;
@@ -31,9 +29,9 @@ public class PautaService {
   public String criarPauta(PautaInput pautaInput) {
     try {
       pautaRepository.criarPauta(pautaInput);
-      return mensagemSucesso;
+      return MENSAGEM_SUCESSO;
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" criarPauta - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" criarPauta - ").concat(erro.getMessage()));
       throw new BancoException("Houve um erro ao criar a pauta.");
     }
   }
@@ -52,7 +50,7 @@ public class PautaService {
           });
       }
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" validarPauta - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" validarPauta - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }
@@ -62,7 +60,7 @@ public class PautaService {
       return Optional.ofNullable(pautaRepository.buscarIdPauta(nomePauta))
         .orElseThrow(() -> new PautaNotFoundException(formatarMensagemNaoCadastro(nomePauta)));
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" buscarIdPauta - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" buscarIdPauta - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }
@@ -72,7 +70,7 @@ public class PautaService {
       return Optional.ofNullable(pautaRepository.buscaPorNome(nomePauta))
         .orElseThrow(() -> new PautaNotFoundException(formatarMensagemNaoCadastro(nomePauta)));
     } catch (DataAccessException erro) {
-      log.error(mensagemErro.concat(" buscarPorNome - ").concat(erro.getMessage()));
+      log.error(MENSAGEM_ERRO.concat(" buscarPorNome - ").concat(erro.getMessage()));
       throw new BancoException();
     }
   }
