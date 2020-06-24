@@ -7,3 +7,6 @@ Serviço dedicado a criação e votação de pautas.
 - Docker
 - Pitest
 - Sonarqube
+
+##Documentação: Swagger
+http://localhost:8080/swagger-ui.html

@@ -1,0 +1,64 @@
+buildscript {
+	configurations.maybeCreate('pitest')
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.0'
+		pitest 'org.pitest:pitest-junit5-plugin:0.8'
+	}
+}
+
+plugins {
+  id 'java'
+	id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+  id 'info.solidsoft.pitest' version '1.4.0'
+}
+
+dependencies {
+	compile project(":contrato")
+	testImplementation 'org.pitest:pitest-junit5-plugin:0.8'
+}
+
+allprojects {
+	apply plugin: "java"
+	apply plugin: "io.spring.dependency-management"
+
+	group = 'br.com'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '11'
+  targetCompatibility = '11'
+
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+
+	dependencies {
+    compile 'org.mybatis:mybatis-typehandlers-jsr310:1.0.2'
+    compile 'org.mybatis:mybatis:3.5.5'
+    compile 'org.postgresql:postgresql:42.2.5'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.springframework.boot:spring-boot-starter-jdbc'
+    compileOnly 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+		testImplementation('org.springframework.boot:spring-boot-starter-test') {
+			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		}
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "5.6.2"
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "1.1.0"
+	}
+
+  test {
+    useJUnitPlatform()
+  }
+}
+
+configurations {
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
+}
