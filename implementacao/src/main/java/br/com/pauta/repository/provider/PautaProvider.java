@@ -9,7 +9,7 @@ public class PautaProvider {
     return new StringBuilder().append("SELECT p.nome, ")
       .append(contarVotos("SIM", "voto_positivo"))
       .append(", ")
-      .append(contarVotos("NAO", "voto_negativo"))
+      .append(contarVotos("NÃO", "voto_negativo"))
       .append(" FROM pauta p ")
       .append(" WHERE p.nome ILIKE '")
       .append(nome)
