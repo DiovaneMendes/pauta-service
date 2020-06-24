@@ -19,4 +19,13 @@ public abstract class VotoInputStub {
       .idPauta(56)
       .build();
   }
+
+  public static VotoInput parametroService() {
+    return VotoInput.builder()
+      .matriculaAssociado(890L)
+      .nomePauta("digital")
+      .valorVoto("NAO")
+      .idPauta(98)
+      .build();
+  }
 }

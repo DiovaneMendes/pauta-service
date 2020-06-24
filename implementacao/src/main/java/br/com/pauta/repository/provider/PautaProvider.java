@@ -6,7 +6,7 @@ public class PautaProvider {
   public String buscaPorNome(Map params) {
     var nome = params.get("nomePauta");
 
-    return new StringBuilder().append("SELECT p.nome,")
+    return new StringBuilder().append("SELECT p.nome, ")
       .append(contarVotos("SIM", "voto_positivo"))
       .append(", ")
       .append(contarVotos("NAO", "voto_negativo"))
