@@ -1,4 +1,4 @@
-![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=master)
+![selo](https://github.com/DiovaneMendes/pauta-service/blob/master/.github/workflows/gradle.yml/badge.svg?branch=master)
 
 # Pauta Service
 Serviço dedicado a criação e votação de pautas.
