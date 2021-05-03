@@ -1,3 +1,5 @@
+![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=master)
+
 # Pauta Service
 Serviço dedicado a criação e votação de pautas.
 
