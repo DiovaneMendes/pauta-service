@@ -1,4 +1,4 @@
-![selo](https://github.com/DiovaneMendes/pauta-service/blob/master/.github/workflows/gradle.yml/badge.svg?branch=master)
+![selo](https://github.com/DiovaneMendes/pauta-service/blob/master/.github/workflows/gradle.yml/badge.svg)
 
 # Pauta Service
 Serviço dedicado a criação e votação de pautas.
