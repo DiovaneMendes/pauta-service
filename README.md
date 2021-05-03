@@ -1,4 +1,5 @@
-# Pauta Service [![selo](https://github.com/DiovaneMendes/pauta-service/blob/master/.github/workflows/gradle.yml/badge.svg)](https://github.com/DiovaneMendes/pauta-service/actions)
+# Pauta Service [![selo](https://github.com/DiovaneMendes/pauta-service/blob/master/.github/workflows/gradle/badge.svg)](https://github.com/DiovaneMendes/pauta-service/actions)
+
 Serviço dedicado a criação e votação de pautas.
 
 ## Tecnologias
